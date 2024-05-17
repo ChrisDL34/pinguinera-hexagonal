@@ -27,10 +27,9 @@ public class SaveCopyUseCase extends CommandUseCase<SaveBookCommand> {
         return commandMono.flatMapMany(command -> repository.findById(command.getBookStoreQuoteId())
                 .collectList()
                 .flatMapIterable(events -> {
-                    BookStoreQuotes bookStoreQuotes;
                     BookStoreQuoteId bookStoreQuoteId = BookStoreQuoteId.of(command.getBookStoreQuoteId());
                     if (events.isEmpty()) {
-                        bookStoreQuotes = new BookStoreQuotes(
+                        BookStoreQuotes bookStoreQuotes = new BookStoreQuotes(
                                 new Title(command.getTitle()),
                                 new Author(command.getAuthor()),
                                 new Stock(command.getStock()),
@@ -38,8 +37,9 @@ public class SaveCopyUseCase extends CommandUseCase<SaveBookCommand> {
                                 new Price(command.getPrice()),
                                 new Type(command.getType())
                         );
+                        return bookStoreQuotes.getUncommittedChanges();
                     } else {
-                        bookStoreQuotes = BookStoreQuotes.from(bookStoreQuoteId, events);
+                        BookStoreQuotes bookStoreQuotes = BookStoreQuotes.from(bookStoreQuoteId, events);
                         bookStoreQuotes.addCopy(
                                 new Title(command.getTitle()),
                                 new Author(command.getAuthor()),
@@ -48,8 +48,8 @@ public class SaveCopyUseCase extends CommandUseCase<SaveBookCommand> {
                                 new Price(command.getPrice()),
                                 new Type(command.getType())
                         );
+                        return bookStoreQuotes.getUncommittedChanges();
                     }
-                    return bookStoreQuotes.getUncommittedChanges();
                 })
                 .map(event -> event)
                 .flatMap(repository::saveEvent)

@@ -13,7 +13,7 @@ public class BookSaved extends DomainEvent {
     private Integer stock;
     private Integer publicationYear;
     private Double price;
-    private String type;
+    private String copyType;
 
     public BookSaved(String title, String author, Integer stock, Integer publicationYear, Double price, String type) {
         super(TypeEvent.BOOK_SAVED.toString());
@@ -22,7 +22,7 @@ public class BookSaved extends DomainEvent {
         this.stock = stock;
         this.publicationYear = publicationYear;
         this.price = price;
-        this.type = type;
+        this.copyType = type;
     }
 
     public BookSaved() {
@@ -37,7 +37,7 @@ public class BookSaved extends DomainEvent {
         this.stock = stock;
         this.publicationYear = publicationYear;
         this.price = price;
-        this.type = type;
+        this.copyType = type;
     }
 
     public String getBookstoreQuoteId() {
@@ -88,11 +88,11 @@ public class BookSaved extends DomainEvent {
         this.price = price;
     }
 
-    public String getType() {
-        return type;
+    public String getCopyType() {
+        return copyType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCopyType(String copyType) {
+        this.copyType = copyType;
     }
 }

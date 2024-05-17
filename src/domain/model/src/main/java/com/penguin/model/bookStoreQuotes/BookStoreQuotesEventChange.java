@@ -1,8 +1,6 @@
 package com.penguin.model.bookStoreQuotes;
 
-import com.penguin.model.bookStoreQuotes.entity.Book;
 import com.penguin.model.bookStoreQuotes.entity.Copy;
-import com.penguin.model.bookStoreQuotes.entity.Novel;
 import com.penguin.model.bookStoreQuotes.events.BookSaved;
 import com.penguin.model.bookStoreQuotes.events.BookStoreQuotesCreated;
 import com.penguin.model.bookStoreQuotes.factory.CopyFactory;
@@ -22,10 +20,9 @@ public class BookStoreQuotesEventChange extends EventChange {
             bookStoreQuotes.quotes = new ArrayList<>();
         });
         apply((BookSaved event) -> {
-            System.out.println("dsafddddddddd" + event.getPrice());
             bookStoreQuotes.copies = new ArrayList<>();
              Copy copy = copyFactory.createCopy(
-                            event.getType(),
+                            event.getCopyType(),
                             new Title(event.getTitle()),
                             new Author(event.getAuthor()),
                             new Stock(event.getStock()),

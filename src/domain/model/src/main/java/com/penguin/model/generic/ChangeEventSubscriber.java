@@ -33,9 +33,7 @@ public class ChangeEventSubscriber {
                 var map = versions.get(domainEvent.type);
                 long version = nextVersion(domainEvent, map);
                 domainEvent.setVersionType(version);
-            }catch (Exception e){
-                throw new RuntimeException(e);
-            }
+            }catch (ClassCastException ignored){}
         });
     }
 
