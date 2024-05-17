@@ -3,6 +3,7 @@ package com.penguin.model.bookStoreQuotes;
 import com.penguin.model.bookStoreQuotes.entity.Copy;
 import com.penguin.model.bookStoreQuotes.events.BookSaved;
 import com.penguin.model.bookStoreQuotes.events.BookStoreQuotesCreated;
+import com.penguin.model.bookStoreQuotes.events.CalculatedMultiplePrice;
 import com.penguin.model.bookStoreQuotes.factory.CopyFactory;
 import com.penguin.model.bookStoreQuotes.factory.CopyFactoryImpl;
 import com.penguin.model.bookStoreQuotes.values.copy.*;
@@ -30,6 +31,10 @@ public class BookStoreQuotesEventChange extends EventChange {
              event.setPrice(copy.getPrice().value());
             bookStoreQuotes.copies.add(copy);
             bookStoreQuotes.setResult(copy);
+        });
+
+        apply((CalculatedMultiplePrice event)->{
+
         });
     }
 

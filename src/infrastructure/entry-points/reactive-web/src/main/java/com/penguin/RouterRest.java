@@ -1,5 +1,7 @@
 package com.penguin;
 
+import com.penguin.calculateproductspriceusecase.CalculateProductsPriceUseCase;
+import com.penguin.model.bookStoreQuotes.commands.CalculateMultiplePriceCommand;
 import com.penguin.model.bookStoreQuotes.commands.SaveBookCommand;
 import com.penguin.model.generic.DomainEvent;
 import com.penguin.saveCopyUseCase.SaveCopyUseCase;
@@ -16,8 +18,11 @@ public class RouterRest {
 
     private final SaveCopyUseCase saveCopyUseCase;
 
-    public RouterRest(SaveCopyUseCase saveCopyUseCase) {
+    private final CalculateProductsPriceUseCase calculateProductsPriceUseCase;
+
+    public RouterRest(SaveCopyUseCase saveCopyUseCase, CalculateProductsPriceUseCase calculateProductsPriceUseCase) {
         this.saveCopyUseCase = saveCopyUseCase;
+        this.calculateProductsPriceUseCase = calculateProductsPriceUseCase;
     }
 
     @PostMapping("/save-copy")
@@ -29,8 +34,10 @@ public class RouterRest {
     }
 
     @PostMapping("/calculate-price")
-    public Mono<ResponseEntity<List<DomainEvent>>> calculateMultiplePrice(@RequestBody){
-
+    public Mono<ResponseEntity<List<DomainEvent>>> calculateMultiplePrice(@RequestBody CalculateMultiplePriceCommand command){
+        return calculateProductsPriceUseCase.apply(Mono.just(command))
+                .collectList()
+                .map(ResponseEntity::ok);
     }
 
 }
