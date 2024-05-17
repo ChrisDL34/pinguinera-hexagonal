@@ -28,4 +28,9 @@ public class RouterRest {
 
     }
 
+    @PostMapping("/calculate-price")
+    public Mono<ResponseEntity<List<DomainEvent>>> calculateMultiplePrice(@RequestBody){
+
+    }
+
 }
