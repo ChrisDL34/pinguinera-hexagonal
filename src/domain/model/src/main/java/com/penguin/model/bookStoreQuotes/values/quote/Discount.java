@@ -4,7 +4,7 @@ import com.penguin.model.generic.ValueObject;
 
 public class Discount implements ValueObject<Double> {
 
-    private final Double discount;
+    private  Double discount;
 
     public Discount(Double discount) {
         if (discount == null) {
@@ -14,6 +14,9 @@ public class Discount implements ValueObject<Double> {
             throw new IllegalArgumentException("Discount cannot be negative");
         }
         this.discount = discount;
+    }
+
+    public Discount() {
     }
 
     @Override

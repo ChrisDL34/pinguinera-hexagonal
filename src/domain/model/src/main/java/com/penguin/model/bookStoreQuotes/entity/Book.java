@@ -1,12 +1,17 @@
 package com.penguin.model.bookStoreQuotes.entity;
 
 import com.penguin.model.bookStoreQuotes.values.copy.*;
+import com.penguin.model.bookStoreQuotes.values.identities.CopyId;
 
 public class Book extends Copy{
 
     private Book(Title title, Author author, Stock stock, Price price, PublicationYear publicationYear) {
         super(title, author, stock, price, publicationYear);
         calculateIndividualPrice();
+    }
+
+    public Book(CopyId id) {
+        super(id);
     }
 
     public static Book from(

@@ -4,10 +4,13 @@ import com.penguin.model.generic.ValueObject;
 
 public class Author implements ValueObject<String> {
 
-    private final String author;
+    private  String author;
 
     public Author(String author) {
         this.author = author;
+    }
+
+    public Author() {
     }
 
     @Override

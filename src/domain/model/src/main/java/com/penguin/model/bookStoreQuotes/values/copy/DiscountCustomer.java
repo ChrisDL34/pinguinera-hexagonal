@@ -4,7 +4,7 @@ import com.penguin.model.generic.ValueObject;
 
 public class DiscountCustomer implements ValueObject<Double> {
 
-    private final Double discountCustomer;
+    private  Double discountCustomer;
 
     public DiscountCustomer(Double total) {
         if (total == null) {
@@ -14,6 +14,9 @@ public class DiscountCustomer implements ValueObject<Double> {
             throw new IllegalArgumentException("Total cannot be negative");
         }
         this.discountCustomer = total;
+    }
+
+    public DiscountCustomer() {
     }
 
     public static DiscountCustomer of(Double total) {

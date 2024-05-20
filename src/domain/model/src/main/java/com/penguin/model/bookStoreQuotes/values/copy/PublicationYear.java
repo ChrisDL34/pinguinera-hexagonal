@@ -5,10 +5,13 @@ import com.penguin.model.generic.ValueObject;
 
 public class PublicationYear implements ValueObject<Integer> {
 
-    private final Integer publicationYear;
+    private  Integer publicationYear;
 
     public PublicationYear(Integer publicationYear) {
         this.publicationYear = publicationYear;
+    }
+
+    public PublicationYear() {
     }
 
     @Override

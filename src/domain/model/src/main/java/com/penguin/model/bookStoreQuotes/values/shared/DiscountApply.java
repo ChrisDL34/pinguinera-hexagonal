@@ -4,13 +4,16 @@ import com.penguin.model.generic.ValueObject;
 
 public class DiscountApply implements ValueObject<Double> {
 
-    private final Double discount;
+    private  Double discount;
 
     public DiscountApply(Double discount) {
         if (discount == null || discount < 0) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
         this.discount = discount;
+    }
+
+    public DiscountApply() {
     }
 
     public static DiscountApply of(Double discount){

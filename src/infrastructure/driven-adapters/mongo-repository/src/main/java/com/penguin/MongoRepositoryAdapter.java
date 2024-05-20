@@ -46,4 +46,12 @@ public class MongoRepositoryAdapter implements DomainEventRepository {
                     return storedEvent.deserializeEvent(eventSerializer);
                 });
     }
+
+
+    @Override
+    public Flux<DomainEvent> findAll() {
+        return template.findAll(Event.class).map(storedEvent -> storedEvent.deserializeEvent(eventSerializer));
+    }
+
+
 }

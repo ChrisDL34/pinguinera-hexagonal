@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class Email implements ValueObject<String> {
 
-    private final String email;
+    private  String email;
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
 
     public Email(String email) {
@@ -17,6 +17,9 @@ public class Email implements ValueObject<String> {
             throw new IllegalArgumentException("Invalid email format");
         }
         this.email = email;
+    }
+
+    public Email() {
     }
 
     @Override

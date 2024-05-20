@@ -1,6 +1,6 @@
 package com.penguin.model.bookStoreQuotes.commands;
 
-import com.penguin.model.bookStoreQuotes.entityprimitive.ProductIdAndQuantity;
+import com.penguin.model.bookStoreQuotes.values.BookStoreQuotes.CopyIdAndQuantity;
 import com.penguin.model.generic.Command;
 
 import java.time.LocalDate;
@@ -9,14 +9,13 @@ import java.util.List;
 public class CalculateMultiplePriceCommand extends Command {
 
     private String bookStoreQuotesId;
-
-    private List<ProductIdAndQuantity> productsIdsQuantity;
-
+    private List<CopyIdAndQuantity> copiesIdsQuantity;
     private LocalDate registrationDate;
 
-    public CalculateMultiplePriceCommand(String bookStoreQuotesId, List<ProductIdAndQuantity> productsIdsQuantity, LocalDate registrationDate) {
+    public CalculateMultiplePriceCommand(String bookStoreQuotesId, List<CopyIdAndQuantity> copiesIdsQuantity,
+                                         LocalDate registrationDate) {
         this.bookStoreQuotesId = bookStoreQuotesId;
-        this.productsIdsQuantity = productsIdsQuantity;
+        this.copiesIdsQuantity = copiesIdsQuantity;
         this.registrationDate = registrationDate;
     }
 
@@ -24,8 +23,8 @@ public class CalculateMultiplePriceCommand extends Command {
         return bookStoreQuotesId;
     }
 
-    public List<ProductIdAndQuantity> getProductsIdsQuantity() {
-        return productsIdsQuantity;
+    public List<CopyIdAndQuantity> getCopiesIdsQuantity() {
+        return copiesIdsQuantity;
     }
 
     public LocalDate getRegistrationDate() {

@@ -4,7 +4,7 @@ import com.penguin.model.generic.ValueObject;
 
 public class Seniority implements ValueObject<SeniorityEnum> {
 
-    private final SeniorityEnum value;
+    private  SeniorityEnum value;
 
     public Seniority(SeniorityEnum value) {
         if (value!= null && validateEnum(value)) {
@@ -12,6 +12,9 @@ public class Seniority implements ValueObject<SeniorityEnum> {
         } else {
             throw new IllegalArgumentException("Product type cannot be null");
         }
+    }
+
+    public Seniority() {
     }
 
     public static Seniority of(SeniorityEnum value) {

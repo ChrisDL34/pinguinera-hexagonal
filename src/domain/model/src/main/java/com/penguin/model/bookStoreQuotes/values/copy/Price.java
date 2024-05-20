@@ -4,12 +4,15 @@ import com.penguin.model.generic.ValueObject;
 
 public class Price implements ValueObject<Double> {
 
-    private final double price;
+    private  double price;
 
     public Price(double price) {
         if(price > 0){
             this.price = price;
         }else throw new IllegalArgumentException("price must be greater than 0");
+    }
+
+    public Price() {
     }
 
     @Override

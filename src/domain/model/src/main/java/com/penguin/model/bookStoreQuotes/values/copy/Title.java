@@ -1,15 +1,22 @@
 package com.penguin.model.bookStoreQuotes.values.copy;
 
+
 import com.penguin.model.generic.ValueObject;
 
 public class Title implements ValueObject<String>{
 
-    private final String title;
+    private  String title;
 
+//    public Title(String title) {
+//        if(!title.isEmpty() && title.length() < 20){
+//            this.title = title;
+//        }else throw new IllegalArgumentException("title must be between 1 and 10");
+//    }
     public Title(String title) {
-        if(!title.isEmpty() && title.length() < 20){
-            this.title = title;
-        }else throw new IllegalArgumentException("title must be between 1 and 10");
+        this.title = title;
+    }
+
+    public Title() {
     }
 
     @Override

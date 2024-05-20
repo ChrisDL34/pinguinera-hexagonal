@@ -10,10 +10,10 @@ import java.util.List;
 
 public class Quote extends Entity<QuoteId> {
 
-    private final CustomerId customerId;
-    private final List<Copy> copies;
-    private final Total total;
-    private final Discount discount;
+    private  CustomerId customerId;
+    private  List<Copy> copies;
+    private  Total total;
+    private  Discount discount;
 
     public Quote(CustomerId customerId, List<Copy> copies, String author, Total total, Discount discount) {
         super(new QuoteId());
@@ -21,6 +21,10 @@ public class Quote extends Entity<QuoteId> {
         this.copies = copies;
         this.total = total;
         this.discount = discount;
+    }
+
+    public Quote(QuoteId id) {
+        super(id);
     }
 
     public static Quote from(

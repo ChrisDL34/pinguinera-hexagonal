@@ -7,7 +7,7 @@ import java.time.format.DateTimeParseException;
 
 public class DateRegister implements ValueObject<String> {
 
-    private final String date;
+    private  String date;
 
     public DateRegister(String date) {
         if (date == null || date.trim().isEmpty()) {
@@ -19,6 +19,9 @@ public class DateRegister implements ValueObject<String> {
             throw new IllegalArgumentException("Invalid date format");
         }
         this.date = date;
+    }
+
+    public DateRegister() {
     }
 
     @Override

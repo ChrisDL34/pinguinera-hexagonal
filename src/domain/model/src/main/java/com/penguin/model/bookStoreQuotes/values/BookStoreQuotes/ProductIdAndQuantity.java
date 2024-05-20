@@ -1,4 +1,4 @@
-package com.penguin.model.bookStoreQuotes.entityprimitive;
+package com.penguin.model.bookStoreQuotes.values.BookStoreQuotes;
 
 public class ProductIdAndQuantity {
 
@@ -6,10 +6,15 @@ public class ProductIdAndQuantity {
 
     private Integer quantity;
 
+
+    public ProductIdAndQuantity() {
+    }
     public ProductIdAndQuantity(String id, Integer quantity) {
         this.id = id;
         this.quantity = quantity;
     }
+
+
 
     public String getId() {
         return id;

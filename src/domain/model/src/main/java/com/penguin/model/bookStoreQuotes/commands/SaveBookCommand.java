@@ -12,6 +12,7 @@ public class SaveBookCommand extends Command {
     private Double price;
     private String type;
 
+
     public SaveBookCommand() {
     }
 

@@ -1,5 +1,6 @@
 package com.penguin.model.bookStoreQuotes.events;
 
+import com.penguin.model.bookStoreQuotes.events.enums.TypeEvent;
 import com.penguin.model.generic.DomainEvent;
 
 import java.time.Instant;
@@ -15,8 +16,11 @@ public class BookSaved extends DomainEvent {
     private Double price;
     private String copyType;
 
+    public BookSaved() {
+
+    }
     public BookSaved(String title, String author, Integer stock, Integer publicationYear, Double price, String type) {
-        super(TypeEvent.BOOK_SAVED.toString());
+        super(TypeEvent.BookSaved.toString());
         this.title = title;
         this.author = author;
         this.stock = stock;
@@ -25,9 +29,7 @@ public class BookSaved extends DomainEvent {
         this.copyType = type;
     }
 
-    public BookSaved() {
-        super();
-    }
+
 
     public BookSaved(Instant when, UUID uuid, String type, String aggregateRootId, String aggregate, Long versionType, String bookstoreQuoteId, String title, String author, Integer stock, Integer publicationYear, Double price) {
         super(when, uuid, type, aggregateRootId, aggregate, versionType);
@@ -40,6 +42,9 @@ public class BookSaved extends DomainEvent {
         this.copyType = type;
     }
 
+    public UUID getUuid() {
+        return uuid;
+    }
     public String getBookstoreQuoteId() {
         return bookstoreQuoteId;
     }

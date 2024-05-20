@@ -11,4 +11,6 @@ public interface DomainEventRepository {
 
     Mono<DomainEvent> saveEvent(DomainEvent event);
     Flux<DomainEvent> findById(String aggregateId);
+
+    Flux<DomainEvent> findAll();
 }

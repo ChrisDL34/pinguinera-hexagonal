@@ -9,10 +9,10 @@ import com.penguin.model.generic.Entity;
 
 public class Customer extends Entity<CustomerId> {
 
-    private final Name name;
-    private final Email email;
-    private final Password password;
-    private final DateRegister date;
+    private  Name name;
+    private  Email email;
+    private  Password password;
+    private  DateRegister date;
 
     public Customer(Name name, Email email, Password password, DateRegister date) {
         super(new CustomerId());
@@ -20,6 +20,10 @@ public class Customer extends Entity<CustomerId> {
         this.email = email;
         this.password = password;
         this.date = date;
+    }
+
+    public Customer(CustomerId id) {
+        super(id);
     }
 
     public static Customer from(
