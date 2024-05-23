@@ -1,1 +1,16 @@
 rootProject.name = 'penguin-bookStore-hexagonal'
+
+include ':model'
+include ':useCase'
+include ':mongo-repository'
+include ':reactive-web'
+include ':app-main'
+include 'serializer'
+
+project(':model').projectDir = file('./src/domain/model')
+project(':useCase').projectDir = file('./src/domain/useCase')
+project(':mongo-repository').projectDir = file('./src/infrastructure/driven-adapters/mongo-repository')
+project(':reactive-web').projectDir = file('./src/infrastructure/entry-points/reactive-web')
+project(':app-main').projectDir = file('./src/applications/app-main')
+project(':serializer').projectDir = file('./src/infrastructure/helpers/serializer')
+
