@@ -24,7 +24,8 @@ public class GetAllCopiesUseCase {
                             bookSavedEvent.getStock(),
                             bookSavedEvent.getPublicationYear(),
                             bookSavedEvent.getPrice(),
-                            bookSavedEvent.getCopyType()
+                            bookSavedEvent.getCopyType(),
+                            bookSavedEvent.getUuid()
                     );
                 });
     }

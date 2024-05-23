@@ -1,5 +1,7 @@
 package com.penguin.model.bookStoreQuotes.values.responses;
 
+import java.util.UUID;
+
 public class AllCopiesResponse {
     private String bookId;
     private String title;
@@ -8,6 +10,7 @@ public class AllCopiesResponse {
     private int publicationYear;
     private double price;
     private String copyType;
+    private UUID uuid;
 
     public AllCopiesResponse() {
     }
@@ -21,6 +24,18 @@ public class AllCopiesResponse {
         this.price = price;
         this.copyType = copyType;
     }
+
+    public AllCopiesResponse(String bookId, String title, String author, int stock, int publicationYear, double price, String copyType, UUID uuid) {
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+        this.stock = stock;
+        this.publicationYear = publicationYear;
+        this.price = price;
+        this.copyType = copyType;
+        this.uuid = uuid;
+    }
+
 
     public String getBookId() {
         return bookId;
@@ -72,6 +87,14 @@ public class AllCopiesResponse {
 
     public String getCopyType() {
         return copyType;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 
     public void setCopyType(String copyType) {
